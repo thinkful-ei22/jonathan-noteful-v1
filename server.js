@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 // Load array of notes
 const express = require('express');
 
@@ -14,6 +16,10 @@ console.log('Hello Noteful!');
 
 
 app.use(express.static('public'));
+
+app.get('/api/notes', (req, res) => {
+  res.json(data);
+});
 
 app.listen(8080, function () {
   console.info(`Server listening on ${this.address().port}`);
