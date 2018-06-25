@@ -18,6 +18,13 @@ console.log('Hello Noteful!');
 app.use(express.static('public'));
 
 app.get('/api/notes', (req, res) => {
+  let searchTerm = req.query.searchTerm;
+  if (searchTerm) {
+    let filtered = data.filter(item => {
+      return item.title.includes(searchTerm);
+    });
+    res.json(filtered);
+  }
   res.json(data);
 });
 
