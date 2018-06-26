@@ -6,6 +6,8 @@
 const express = require('express');
 
 const data = require('./db/notes');
+const simdDB = require('./db/simDB');
+const notes = simDB.initiailize(data);
 
 const app = express();
 
