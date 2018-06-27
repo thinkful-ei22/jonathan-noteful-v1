@@ -8,19 +8,20 @@ const express = require('express');
 const data = require('./db/notes');
 const simDB = require('./db/simDB');
 const notes = simDB.initialize(data);
+const morgan = require('morgan');
 
 const app = express();
 
 const { PORT } = require('./config');
 
-const logger = require('./middleware/logger');
+// const logger = require('./middleware/logger');
 
 
 console.log('Hello Noteful!');
 
 // Log all requests
 
-app.use(logger);
+app.use(morgan(':method :url :status :response-time ms - :res[content-length]'));
 
 app.use(express.static('public'));
 app.use(express.json());
