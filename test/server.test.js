@@ -72,7 +72,7 @@ describe('Return Array', function () {
   });
 });
 
-it('should return correct results', function () {
+it('should return correct the results', function () {
   return chai.request(app)
     .get('/api/notes?searchTerm=about%20cats')
     .then(res => {
